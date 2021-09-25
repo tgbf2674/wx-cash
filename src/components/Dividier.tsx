@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 const VerticalDivider = styled.span`
-  border-right: 1px solid #e4e6e4;
+  border-right: 1px solid #a0d8bb;
   margin: 0 16px;
 `
 
