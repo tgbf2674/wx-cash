@@ -1,6 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {ThemeProvider} from 'styled-components';
 import Summary from './pages/Summary';
+import theme from './theme'
 
 const StyledApp =styled.div`
   max-width: 540px;
@@ -11,9 +12,11 @@ const StyledApp =styled.div`
 
 function App() {
   return (
+    <ThemeProvider theme={theme}>
     <StyledApp>
-      <Summary></Summary>
+      <Summary />
     </StyledApp>
+    </ThemeProvider>
   );
 }
 
