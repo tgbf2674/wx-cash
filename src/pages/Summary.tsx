@@ -2,6 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components';
 import Icon from '../components/Icon';
 import Divider from '../components/Dividier';
+import Record from '../components/Records';
 
 const StyleSummary = styled.div`
   color: ${props => props.theme.$success};
@@ -55,7 +56,7 @@ const Summary: React.FC = () => {
           <TypeButton>
             <span>全部类型</span>
             <Divider/>
-            <Icon name="application"></Icon>
+            <Icon name="application" />
           </TypeButton>
         </section>
         <BriefSection>
@@ -67,6 +68,9 @@ const Summary: React.FC = () => {
           <span>总收入￥{totalIncome}</span>
         </BriefSection>
       </Header>
+      <ul>
+        <Record/>
+      </ul>
     </StyleSummary>
   )
 }
