@@ -44,6 +44,10 @@ const BriefSection = styled.section`
   }
 `
 
+const RecordList = styled.ul`
+  padding: 8px;
+`
+
 const Summary: React.FC = () => {
   const totalIncome = 420
   const totalExpense = 300
@@ -67,9 +71,9 @@ const Summary: React.FC = () => {
           <span>总收入￥{totalIncome}</span>
         </BriefSection>
       </Header>
-      <ul>
+      <RecordList>
         <Record/>
-      </ul>
+      </RecordList>
     </div>
   )
 }
