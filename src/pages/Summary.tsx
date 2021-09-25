@@ -1,6 +1,8 @@
 import * as React from 'react'
 import styled from 'styled-components';
 import Icon from '../components/Icon';
+import Divider from '../components/Dividier';
+
 const StyleSummary = styled.div`
   color: ${props => props.theme.$success};
 `
@@ -29,6 +31,7 @@ const Summary: React.FC = () => {
         <section>
           <TypeButton>
             <span>全部类型</span>
+            <Divider/>
             <Icon name="yingyong"></Icon>
           </TypeButton>
         </section>
