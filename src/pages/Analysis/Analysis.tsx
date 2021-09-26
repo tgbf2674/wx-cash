@@ -10,6 +10,7 @@ import Divider from '../../components/Dividier';
 import {useState} from 'react';
 import CategorySection from './CategorySection';
 import MonthFilterSection from './MonthFilterSection';
+import DayAnalysis from './DayAnalysis';
 const StyledAnalysis = styled.div`
   flex-grow: 1;
   overflow: auto;
@@ -32,12 +33,12 @@ const Analysis: React.FC = () => {
   return (
     <Layout>
       <StyledAnalysis>
-        <MonthFilterSection monthRecord={selectedRecordList} month={month} showMonth={()=> toggleMonth(true)}></MonthFilterSection>
+        <MonthFilterSection monthRecord={selectedRecordList} month={month} showMonth={()=> toggleMonth(true)} />
         <Main>
           <CategorySection monthRecord={selectedRecordList}/>
 
           <Divider direction="horizontal" gap={24}/>
-
+          <DayAnalysis monthRecord={selectedRecordList} month={month}/>
 
           <Divider direction="horizontal" gap={24}/>
 
