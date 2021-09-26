@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styled, {ThemeProvider} from 'styled-components';
 import Summary from './pages/Summary';
+import Settings from './pages/Settings';
 import theme from './theme'
 import {HashRouter as Router, Switch, Route} from 'react-router-dom';
 
@@ -16,9 +17,9 @@ const StyledApp = styled.div<TStyledApp>`
 `
 
 const App: React.FC=()=>{
-  const [height,setHetght] = useState(window.innerHeight)
+  const [height,setHeight] = useState(window.innerHeight)
   const onResize= ()=>{
-    setHetght(window.innerHeight* 0.01)
+    setHeight(window.innerHeight* 0.01)
   }
   useEffect(()=>{
     window.addEventListener('resize',onResize)
@@ -31,6 +32,9 @@ const App: React.FC=()=>{
           <Switch>
             <Route exact path="/">
               <Summary/>
+            </Route>
+            <Route path="/settings">
+              <Settings/>
             </Route>
           </Switch>
         </StyledApp>

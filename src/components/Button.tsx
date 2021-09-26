@@ -49,6 +49,7 @@ const StyledButton = styled.button<TStyledButton>(props=>{
     borderRight: '16px',
     marginRight: '8px',
     border: '1px solid',
+    borderRadius: '4px',
     ...BUTTON_COLOR[props.recordType],
     ...BUTTON_SIZE[props.size]
   }

@@ -22,7 +22,7 @@ const StyledNumberPad = styled.div<TStyledNumberPad>`
     background: white;
     font-size: 1.3em;
     outline: none;
-    border-radius: 4px;
+    border-radius: 8px;
     border: 4px solid #FAFAFA;
     &.zero {
       width: 50%;
