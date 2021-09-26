@@ -28,7 +28,7 @@ export type TMonthRecord = TRecord & {
 export const DEFAULT_RECORDS: TRawRecord[] = [
   {
     id: '1',
-    date: dayjs('2020-04-04').toISOString(),
+    date: dayjs('2021-09-04').toISOString(),
     categoryId: '4',
     amount: 300,
     note: '吃黄焖鸡米饭',
@@ -36,7 +36,7 @@ export const DEFAULT_RECORDS: TRawRecord[] = [
   },
   {
     id: '2',
-    date: dayjs('2020-03-04').toISOString(),
+    date: dayjs('2021-08-04').toISOString(),
     categoryId: '9',
     amount: 400,
     note: '工资',
@@ -44,7 +44,7 @@ export const DEFAULT_RECORDS: TRawRecord[] = [
   },
   {
     id: '3',
-    date: dayjs('2020-03-03').toISOString(),
+    date: dayjs('2021-08-03').toISOString(),
     categoryId: '1',
     amount: 200,
     note: '买衣服',
@@ -52,7 +52,7 @@ export const DEFAULT_RECORDS: TRawRecord[] = [
   },
   {
     id: '4',
-    date: dayjs('2020-03-03').toISOString(),
+    date: dayjs('2021-08-03').toISOString(),
     categoryId: '5',
     amount: 500,
     note: '去巴哈马',

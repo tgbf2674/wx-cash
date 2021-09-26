@@ -14,7 +14,7 @@ import Money from '../components/Money';
 import CategoryFilter from '../components/CategoryFilter'
 import {ALL_CATEGORIES, ALL_TYPE} from '../lib/category'
 import Layout from '../components/Layout';
-
+import MonthPanel from '../components/MonthPanel';
 const FilterWrapper = styled.section`
   padding: 0 12px;
   background: ${props => props.theme.$success};
@@ -131,6 +131,7 @@ const Summary: React.FC = () => {
       {
         showMonth &&
         <Drawer title="请选择月份" closeDrawer={() => toggleMonth(false)}>
+          <MonthPanel value={month} closeDrawer={()=> toggleMonth(false)} onSubmit={(newMonth => setMonth(newMonth))}/>
         </Drawer>
       }
 
