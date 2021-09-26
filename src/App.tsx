@@ -3,6 +3,7 @@ import styled, {ThemeProvider} from 'styled-components';
 import Summary from './pages/Summary';
 import Settings from './pages/Settings';
 import Details from './pages/Details';
+import Analysis from './pages/Analysis/Analysis';
 import theme from './theme'
 import {HashRouter as Router, Switch, Route} from 'react-router-dom';
 
@@ -33,6 +34,9 @@ const App: React.FC=()=>{
           <Switch>
             <Route exact path="/">
               <Summary/>
+            </Route>
+            <Route path="/analysis">
+              <Analysis/>
             </Route>
             <Route path="/settings">
               <Settings/>
