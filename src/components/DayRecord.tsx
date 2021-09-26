@@ -52,9 +52,11 @@ const DayRecord: React.FC<TProps> =(props)=>{
         </DateSection>
         <AmountSection>
           <Tag>支</Tag>
-          <span style={{marginRight: 16}}>{expenseTotal.toFixed(2)}</span>
+          <span style={{marginRight: 4}}>{expenseTotal.toFixed(2)}</span>
           <Tag>收</Tag>
-          <span>{incomeTotal.toFixed(2)}</span>
+          <span style={{marginRight: 4}}>{incomeTotal.toFixed(2)}</span>
+          <Tag>总</Tag>
+          <span style={{marginRight: 4}}>{incomeTotal-expenseTotal}</span>
         </AmountSection>
       </Header>
       <ul>

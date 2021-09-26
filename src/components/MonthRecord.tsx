@@ -11,7 +11,7 @@ type TProps = {
 const Header = styled.div`
   padding: 8px 18px;
 
-  span {
+  > span {
     font-size: ${props => props.theme.$normalTextSize};
     color: ${props => props.theme.$subText}
   }
