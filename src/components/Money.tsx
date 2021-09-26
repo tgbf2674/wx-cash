@@ -1,11 +1,11 @@
-import * as React from 'react'
-import {useState} from 'react'
-import styled from 'styled-components'
-import Category from './Category'
-import {DEFAULT_EXPENSE_CATEGORIES, DEFAULT_INCOME_CATEGORIES} from '../lib/category'
-import {TRawRecord, TRecordType} from '../hooks/useRecordList'
-import Button from './Button'
-import NumberPad from './NumberPad'
+import * as React from 'react';
+import {useState} from 'react';
+import styled from 'styled-components';
+import Category from './Category';
+import {DEFAULT_EXPENSE_CATEGORIES, DEFAULT_INCOME_CATEGORIES} from '../lib/category';
+import {TRawRecord, TRecordType} from '../hooks/useRecordList';
+import Button from './Button';
+import NumberPad from './NumberPad';
 
 type TProps = {
   value?: TRawRecord
@@ -17,69 +17,80 @@ const TypeSection = styled.section`
   padding: 16px;
   display: flex;
   align-items: center;
-`
+`;
 const AmountSection = styled.section`
   display: flex;
   width: 90%;
   margin: 0 auto;
   border-bottom: 1px solid #eee;
+  justify-content: center;
+  align-items: center;
+
   > span {
     font-size: 2.5em;
   }
-  > input {
+
+  > div {
     padding-left: 8px;
     flex-grow: 1;
-    border: none;
-    outline: none;
+    display: flex;
+    align-items: center;
     height: 64px;
-    font-size: 2em;
-    text-align: right;
+    justify-content: flex-end;
+    > span{
+      border: none;
+      outline: none;
+      font-size: 2em;
+    }
   }
-`
+`;
 const CategoryList = styled.ul`
   padding: 24px;
   display: flex;
   align-items: center;
   overflow-x: auto;
   list-style: none;
-  &::-webkit-scrollbar{
+
+  &::-webkit-scrollbar {
     width: 0;
   }
-`
+`;
 const CategoryItem = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-right: 16px;
+
   &:last-child {
     margin-right: 0;
   }
-`
+`;
 const CategoryText = styled.span`
   font-size: .8em;
   margin-top: 8px;
   color: ${props => props.theme.$subText};
   word-break: keep-all;
-`
+`;
 const NoteSection = styled.section`
   display: flex;
   align-items: center;
   padding: 0 24px 24px;
-  > span{
+
+  > span {
     margin-right: 8px;
-    color: ${props=> props.theme.$linkText};
+    color: ${props => props.theme.$linkText};
     cursor: pointer;
   }
-`
+`;
 
 const NumberPadSection = styled.section`
   padding: 4px;
   background: #fafafa;
-`
+`;
 
 
 const Money: React.FC<TProps> = (props) => {
-  const {closeDrawer, onSubmit, value} = props
+  const {closeDrawer, onSubmit, value} = props;
 
   const rawRecord: TRawRecord = value ? value : {
     date: new Date().toISOString(),
@@ -88,33 +99,33 @@ const Money: React.FC<TProps> = (props) => {
     categoryId: '1',
     note: '',
     type: 'expense'
-  }
+  };
 
-  const [note, setNote] = useState(rawRecord.note)
-  const [type, setType] = useState<TRecordType>(rawRecord.type)
-  const [categoryId, setCategoryId] = useState(rawRecord.categoryId)
-  const [amount, setAmount] = useState(rawRecord.amount)
-  const [amountString, setAmountString] = useState(rawRecord.amount.toString())
+  const [note, setNote] = useState(rawRecord.note);
+  const [type, setType] = useState<TRecordType>(rawRecord.type);
+  const [categoryId, setCategoryId] = useState(rawRecord.categoryId);
+  const [amount, setAmount] = useState(rawRecord.amount);
+  const [amountString, setAmountString] = useState(rawRecord.amount.toString());
 
-  const categories = type === 'expense' ? DEFAULT_EXPENSE_CATEGORIES : DEFAULT_INCOME_CATEGORIES
+  const categories = type === 'expense' ? DEFAULT_EXPENSE_CATEGORIES : DEFAULT_INCOME_CATEGORIES;
 
   const onChangeAmount = (newValue: string) => {
-    setAmountString(newValue)
-    setAmount(parseFloat(newValue))
-  }
+    setAmountString(newValue);
+    setAmount(parseFloat(newValue));
+  };
 
   const addNote = () => {
-    const MAX_NOTE_LENGTH = 20
+    const MAX_NOTE_LENGTH = 20;
 
-    const newNote = prompt('添加备注', '') || ''
+    const newNote = prompt('添加备注', '') || '';
 
-    if (newNote.length > MAX_NOTE_LENGTH) return alert(`不能超过${MAX_NOTE_LENGTH}个字`)
+    if (newNote.length > MAX_NOTE_LENGTH) return alert(`不能超过${MAX_NOTE_LENGTH}个字`);
 
-    setNote(newNote)
-  }
+    setNote(newNote);
+  };
 
   const onOK = () => {
-    if (amount === 0) return alert('金额不能为0')
+    if (amount === 0) return alert('金额不能为0');
 
     const newRawRecord = {
       ...rawRecord,
@@ -122,12 +133,12 @@ const Money: React.FC<TProps> = (props) => {
       categoryId,
       note,
       type
-    }
+    };
 
-    onSubmit(newRawRecord)
+    onSubmit(newRawRecord);
 
-    closeDrawer()
-  }
+    closeDrawer();
+  };
 
   return (
     <div>
@@ -143,7 +154,11 @@ const Money: React.FC<TProps> = (props) => {
       </TypeSection>
       <AmountSection>
         <span>￥</span>
-        <div>{amountString}</div>
+        <div>
+          <span>
+            {amountString}
+          </span>
+        </div>
       </AmountSection>
       <CategoryList>
         {
@@ -169,7 +184,7 @@ const Money: React.FC<TProps> = (props) => {
                    onOK={onOK}/>
       </NumberPadSection>
     </div>
-  )
-}
+  );
+};
 
-export default Money
+export default Money;
