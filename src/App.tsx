@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styled, {ThemeProvider} from 'styled-components';
 import Summary from './pages/Summary';
 import Settings from './pages/Settings';
+import Details from './pages/Details';
 import theme from './theme'
 import {HashRouter as Router, Switch, Route} from 'react-router-dom';
 
@@ -35,6 +36,9 @@ const App: React.FC=()=>{
             </Route>
             <Route path="/settings">
               <Settings/>
+            </Route>
+            <Route path="/record/:id">
+              <Details/>
             </Route>
           </Switch>
         </StyledApp>
