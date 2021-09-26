@@ -39,7 +39,7 @@ const EachRecord: React.FC<TProps> = (props) => {
     <StyledEachRecord to={`/record/${id}`}>
       <Category category={category!} recordType={type}/>
       <div className="record-content">
-        <div>其他</div>
+        <div>{category && category.name}</div>
         <div className="record-content-details">
           <span>{time}</span>
           <Divider gap={8}/>
