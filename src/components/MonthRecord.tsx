@@ -3,6 +3,8 @@ import DayRecord from './DayRecord';
 import {TMonthRecord} from '../hooks/useRecordList';
 import styled from 'styled-components';
 import Divider from './Dividier';
+import dayjs from 'dayjs';
+import {MONTH} from '../lib/date';
 
 type TProps = {
   monthRecord: TMonthRecord
@@ -10,7 +12,7 @@ type TProps = {
 
 const Header = styled.div`
   padding: 8px 18px;
-
+  
   > span {
     font-size: ${props => props.theme.$normalTextSize};
     color: ${props => props.theme.$subText}
@@ -18,23 +20,26 @@ const Header = styled.div`
 `;
 
 const RecordList = styled.ul`
-  margin-bottom: 8px;
 `;
 
 const MonthRecord: React.FC<TProps> = (props) => {
   const {month, recordList, incomeTotal, expenseTotal} = props.monthRecord;
+  const curMonth = dayjs().format(MONTH)
   return (
     <RecordList>
-      <Header>
-        <span>{month}</span>
-        <Divider gap={8}/>
-        <span style={{marginRight: 12}}>
+      {
+        curMonth !== month &&
+        <Header>
+          <span>{month}</span>
+          <Divider gap={8}/>
+          <span style={{marginRight: 12}}>
             总支出￥{expenseTotal.toFixed(2)}
           </span>
-        <span>
+          <span>
             总收入￥{incomeTotal.toFixed(2)}
           </span>
-      </Header>
+        </Header>
+      }
       <ul>{
         recordList && recordList.map(dayRecord => (
           <DayRecord key={dayRecord.day} dayRecord={dayRecord}/>
