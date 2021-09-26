@@ -24,7 +24,7 @@ const Details: React.FC = ()=>{
   const {goBack,push} = useHistory()
   const {id} = useParams<TParams>()
   const {rawRecordList,deleteRecord,editRecord} = useRecordList()
-  const [showMoney,toggleMoney] = useState(false)
+  let [showMoney,toggleMoney] = useState(false)
   const rawRecord = rawRecordList.find(r=> r.id=== id)
   if(!rawRecord) return <div>页面出错</div>
   const onDelete = (id: string) => {
@@ -37,7 +37,6 @@ const Details: React.FC = ()=>{
 
   const onEdit = (rawRecord: TRawRecord) => {
     editRecord(rawRecord)
-
     alert('修改成功')
   }
 
@@ -49,15 +48,15 @@ const Details: React.FC = ()=>{
 
       <Main>
         <RecordDetails onDelete={onDelete}
-                       onEdit={() => toggleMoney(showMoney)}
+                       onEdit={() => toggleMoney(showMoney=true)}
                        rawRecord={rawRecord}/>
       </Main>
 
       {/*记账*/}
       {
         showMoney &&
-        <Drawer closeDrawer={() => toggleMoney(!showMoney)}>
-          <Money closeDrawer={() => toggleMoney(!showMoney)}
+        <Drawer closeDrawer={() => toggleMoney(showMoney=false)}>
+          <Money closeDrawer={() => toggleMoney(showMoney=false)}
                  value={rawRecord}
                  onSubmit={onEdit}/>
         </Drawer>
