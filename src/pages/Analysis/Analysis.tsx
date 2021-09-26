@@ -11,6 +11,7 @@ import {useState} from 'react';
 import CategorySection from './CategorySection';
 import MonthFilterSection from './MonthFilterSection';
 import DayAnalysis from './DayAnalysis';
+import MonthAnalysis from './MonthAnalysis';
 const StyledAnalysis = styled.div`
   flex-grow: 1;
   overflow: auto;
@@ -41,7 +42,7 @@ const Analysis: React.FC = () => {
           <DayAnalysis monthRecord={selectedRecordList} month={month}/>
 
           <Divider direction="horizontal" gap={24}/>
-
+          <MonthAnalysis getMonthRecord={getMonthRecord} />
         </Main>
       </StyledAnalysis>
 
