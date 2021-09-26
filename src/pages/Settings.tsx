@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Icon from '../components/Icon';
 import Drawer from '../components/Drawer';
 import {useState} from 'react';
-
+import qrcode from '../assets/img/qrcode.png'
 const Main = styled.div`
   flex-grow: 1;
   overflow: auto;
@@ -75,7 +75,7 @@ const Settings: React.FC = () => {
         <Drawer closeDrawer={() => toggleQrcode(false)}>
           <QrCode>
             <p>扫一下面二维码以分享该记账本</p>
-            <img src={require('../assets/img/qrcode.png')} alt="网站二维码"/>
+            <img src={qrcode} alt="网站二维码"/>
           </QrCode>
         </Drawer>
       }
