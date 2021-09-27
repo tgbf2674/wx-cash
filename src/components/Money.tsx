@@ -50,9 +50,9 @@ const CategoryList = styled.ul`
   align-items: center;
   overflow-x: auto;
   list-style: none;
-
   &::-webkit-scrollbar {
-    width: 0;
+    width: 0px;
+    height: 0px;
   }
 `;
 const CategoryItem = styled.li`

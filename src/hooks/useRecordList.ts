@@ -136,7 +136,7 @@ const useRecordList = () => {
     setRecordList(bulkAppendRecords([], rawRecordList))
   }
 
-  const getMonthRecord = (month: string) => { // '2020年4月'
+  const getMonthRecord = (month: string) => {
     return recordList.find(m => m.month === month)
   }
 
